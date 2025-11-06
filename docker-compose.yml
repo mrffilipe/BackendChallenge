@@ -1,13 +1,97 @@
 services:
+  # --- Banco de dados PostgreSQL ---
+  postgres:
+    image: postgres:16
+    container_name: ${COMPOSE_PROJECT_NAME}-postgres
+    restart: unless-stopped
+    ports:
+      - "${POSTGRES_HOST_PORT}:5432"
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # --- Broker RabbitMQ (com UI de gerenciamento) ---
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: ${COMPOSE_PROJECT_NAME}-rabbitmq
+    restart: unless-stopped
+    ports:
+      - "${RABBITMQ_PORT}:5672"
+      - "${RABBITMQ_MGMT_PORT}:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD}
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # --- API .NET ---
   backendchallenge.api:
     image: ${DOCKER_REGISTRY-}backendchallengeapi
     build:
       context: .
       dockerfile: BackendChallenge.API/Dockerfile
+    container_name: ${COMPOSE_PROJECT_NAME}-api
+    restart: unless-stopped
+    ports:
+      - "${API_HTTP_PORT}:8080"
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT}
 
+      # DB / MQ
+      CONNECTIONSTRINGS__DEFAULTCONNECTION: ${CONNECTIONSTRINGS__DEFAULTCONNECTION}
+      Rabbit__Connection: ${RABBIT__CONNECTION}
+
+      # Storage provider = S3
+      Storage__Provider: S3
+
+      # Config S3
+      AWS__AccessKeyId: ${AWS_ACCESS_KEY_ID}
+      AWS__SecretAccessKey: ${AWS_SECRET_ACCESS_KEY}
+      AWS__Region: ${AWS_REGION}
+
+      Storage__S3__BucketName: ${S3_BUCKET_NAME}
+      Storage__S3__Prefix: ${S3_BUCKET_PREFIX}
+      Storage__S3__ServiceURL: ${S3_SERVICE_URL}
+      Storage__S3__ForcePathStyle: ${S3_FORCE_PATH_STYLE}
+      Storage__S3__UseAccelerate: ${S3_USE_ACCELERATE}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+
+  # --- Worker .NET (consumidor) ---
   backendchallenge.worker:
     image: ${DOCKER_REGISTRY-}backendchallengeworker
     build:
       context: .
       dockerfile: BackendChallenge.Worker/Dockerfile
+    container_name: ${COMPOSE_PROJECT_NAME}-worker
+    restart: unless-stopped
+    environment:
+      ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT}
+      CONNECTIONSTRINGS__DEFAULTCONNECTION: ${CONNECTIONSTRINGS__DEFAULTCONNECTION}
+      Rabbit__Connection: ${RABBIT__CONNECTION}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
 
+volumes:
+  postgres_data:
+  rabbitmq_data:

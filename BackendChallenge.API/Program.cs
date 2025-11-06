@@ -1,5 +1,7 @@
 using BackendChallenge.Infrastructure.Configurations;
 using BackendChallenge.Infrastructure.Extensions;
+using BackendChallenge.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +21,13 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext();
 
 var app = builder.Build();
+
+// Aplica migrations automaticamente
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    db.Database.Migrate();
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
