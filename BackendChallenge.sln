@@ -10,6 +10,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackendChallenge.Application", "BackendChallenge.Application\BackendChallenge.Application.csproj", "{635C80E1-F2B9-4A45-9A95-67068C312938}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackendChallenge.Infrastructure", "BackendChallenge.Infrastructure\BackendChallenge.Infrastructure.csproj", "{0BC87E7B-4C61-4923-BB47-2B2D6F9D6F8F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{635C80E1-F2B9-4A45-9A95-67068C312938} = {635C80E1-F2B9-4A45-9A95-67068C312938}
+		{B0FA997B-90B1-4856-9DEC-BF246EB22A38} = {B0FA997B-90B1-4856-9DEC-BF246EB22A38}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
