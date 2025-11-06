@@ -13,7 +13,7 @@ namespace BackendChallenge.Domain.Entities
         public TypeOfDriversLicense TypeOfDriversLicense { get; private set; }
         public string UrlOfTheDriversLicenseImage { get; private set; } = string.Empty;
 
-        public ICollection<MotorcycleRental> Rentals { get; private set; } = [];
+        public ICollection<MotorcycleRental> MotorcycleRentals { get; private set; } = [];
 
         private DeliveryPerson()
         {

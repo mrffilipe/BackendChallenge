@@ -9,7 +9,7 @@ namespace BackendChallenge.Domain.Entities
         public string Model { get; private set; } = string.Empty;
         public string Plate { get; private set; } = string.Empty;
 
-        public ICollection<MotorcycleRental> Rentals { get; private set; } = [];
+        public ICollection<MotorcycleRental> MotorcycleRentals { get; private set; } = [];
 
         private Motorcycle()
         {
@@ -29,6 +29,11 @@ namespace BackendChallenge.Domain.Entities
                 throw new Exception("A placa não pode ser nula ou vazia");
 
             Plate = plate;
+        }
+
+        public bool HasMotorcycleRentals()
+        {
+            return MotorcycleRentals.Count > 0;
         }
     }
 }
