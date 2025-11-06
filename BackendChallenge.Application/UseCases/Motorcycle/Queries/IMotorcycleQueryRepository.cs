@@ -5,5 +5,6 @@ namespace BackendChallenge.Application.UseCases
     public interface IMotorcycleQueryRepository
     {
         Task<Motorcycle> GetByExternalIdAsync(string externalId);
+        Task<Motorcycle> GetByPlateAsync(string plate);
     }
 }
