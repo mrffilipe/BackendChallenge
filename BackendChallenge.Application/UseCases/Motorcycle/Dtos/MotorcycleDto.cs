@@ -1,8 +1,8 @@
 ﻿namespace BackendChallenge.Application.UseCases
 {
-    public record RegisterMotorcycleDto : MotorcycleBaseDto
+    public record MotorcycleDto : MotorcycleBaseDto
     {
-        public RegisterMotorcycleDto(
+        public MotorcycleDto(
             string identificador,
             int ano,
             string modelo,

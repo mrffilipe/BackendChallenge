@@ -21,7 +21,7 @@ namespace BackendChallenge.Application.UseCases
 
         public async Task ExecuteAsync(RegisterMotorcycleDto dto)
         {
-            var result = _motorcycleQueryRepository.GetByExternalIdAsync(dto.identificador);
+            var result = await _motorcycleQueryRepository.GetByExternalIdAsync(dto.identificador);
 
             if (result != null)
                 throw new Exception("Moto com o mesmo identificador já registrada.");
