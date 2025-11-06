@@ -1,4 +1,5 @@
 ﻿using BackendChallenge.API.Interfaces;
+using BackendChallenge.Application.Common;
 using BackendChallenge.Application.UseCases;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,6 +18,8 @@ namespace BackendChallenge.API.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ResponseToTheRequest))]
         public async Task<IActionResult> RegisterDeliveryPerson([FromBody] RegisterDeliveryPersonDto dto)
         {
             await _registerDeliveryPerson.ExecuteAsync(dto);
@@ -24,6 +27,8 @@ namespace BackendChallenge.API.Controllers
         }
 
         [HttpPost("{id}/cnh")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ResponseToTheRequest))]
         public async Task<IActionResult> UpdateYourDriversLicensePhoto([FromRoute] string id, [FromBody] UpdateDriversLicensePhotoDto dto)
         {
             await _updateYourDriversLicensePhoto.ExecuteAsync(id, dto);

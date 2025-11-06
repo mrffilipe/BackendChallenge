@@ -23,6 +23,8 @@ namespace BackendChallenge.API.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ResponseToTheRequest))]
         public async Task<IActionResult> RegisterMotorcycleRental([FromBody] RegisterMotorcycleRentalDto dto)
         {
             await _registerMotorcycleRental.ExecuteAsync(dto);
@@ -30,6 +32,9 @@ namespace BackendChallenge.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(MotorcycleRentalDto))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ResponseToTheRequest))]
+        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ResponseToTheRequest))]
         public async Task<ActionResult<MotorcycleRentalDto>> SearcheForMotorcycleRentalById([FromRoute] string id)
         {
             var result = await _searcheForMotorcycleRentalById.ExecuteAsync(id);
@@ -37,6 +42,8 @@ namespace BackendChallenge.API.Controllers
         }
 
         [HttpPut("{id}/devolucao")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ResponseToTheRequest))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ResponseToTheRequest))]
         public async Task<ActionResult<ResponseToTheRequest>> UpdateReturnDate([FromRoute] string id, [FromBody] UpdateReturnDateDto dto)
         {
             var result = await _updateReturnDate.ExecuteAsync(id, dto);
