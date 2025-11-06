@@ -1,7 +1,9 @@
-﻿namespace BackendChallenge.Application.UseCases
+﻿using BackendChallenge.Application.Common;
+
+namespace BackendChallenge.Application.UseCases
 {
     public interface IAdminUpdatesMotorcyclePlate
     {
-        Task ExecuteAsync(string id, UpdateMotorcyclePlateDto dto);
+        Task<ResponseToTheRequest> ExecuteAsync(string id, UpdateMotorcyclePlateDto dto);
     }
 }

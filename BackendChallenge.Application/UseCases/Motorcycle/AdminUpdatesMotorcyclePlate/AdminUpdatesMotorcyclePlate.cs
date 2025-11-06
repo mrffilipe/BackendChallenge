@@ -1,4 +1,5 @@
-﻿using BackendChallenge.Application.Services;
+﻿using BackendChallenge.Application.Common;
+using BackendChallenge.Application.Services;
 
 namespace BackendChallenge.Application.UseCases
 {
@@ -13,7 +14,7 @@ namespace BackendChallenge.Application.UseCases
             _unityOfWorkService = unityOfWorkService;
         }
 
-        public async Task ExecuteAsync(string id, UpdateMotorcyclePlateDto dto)
+        public async Task<ResponseToTheRequest> ExecuteAsync(string id, UpdateMotorcyclePlateDto dto)
         {
             var result = await _motorcycleQueryRepository.GetByExternalIdAsync(id);
 
@@ -23,6 +24,8 @@ namespace BackendChallenge.Application.UseCases
             result.UpdatePlate(dto.placa);
 
             await _unityOfWorkService.SaveChangesAsync();
+
+            return new ResponseToTheRequest("Placa modificada com sucesso");
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BackendChallenge.API.Interfaces;
+using BackendChallenge.Application.Common;
 using BackendChallenge.Application.UseCases;
 using Microsoft.AspNetCore.Mvc;
 
@@ -28,33 +29,38 @@ namespace BackendChallenge.API.Controllers
         }
 
         [HttpPost]
-        public async Task AdminRegisterMotorcycle([FromBody] RegisterMotorcycleDto dto)
+        public async Task<IActionResult> AdminRegisterMotorcycle([FromBody] RegisterMotorcycleDto dto)
         {
             await _adminRegisterMotorcycle.ExecuteAsync(dto);
+            return Created();
         }
 
         [HttpGet]
-        public async Task<IEnumerable<MotorcycleDto>> AdminSearchesForMotorcycleByPlate([FromQuery] string placa)
+        public async Task<ActionResult<IEnumerable<MotorcycleDto>>> AdminSearchesForMotorcycleByPlate([FromQuery] string placa)
         {
-            return await _adminSearchesForMotorcycleByPlate.ExecuteAsync(placa);
+            var result = await _adminSearchesForMotorcycleByPlate.ExecuteAsync(placa);
+            return Ok(result);
         }
 
         [HttpPut("{id}")]
-        public async Task AdminUpdatesMotorcyclePlate([FromRoute] string id, [FromBody] UpdateMotorcyclePlateDto dto)
+        public async Task<ActionResult<ResponseToTheRequest>> AdminUpdatesMotorcyclePlate([FromRoute] string id, [FromBody] UpdateMotorcyclePlateDto dto)
         {
-            await _adminUpdatesMotorcyclePlate.ExecuteAsync(id, dto);
+            var result = await _adminUpdatesMotorcyclePlate.ExecuteAsync(id, dto);
+            return Ok(result);
         }
 
         [HttpGet("{id}")]
-        public async Task<MotorcycleDto> AdminSearchesForMotorcycleById([FromRoute] string id)
+        public async Task<ActionResult<IEnumerable<MotorcycleDto>>> AdminSearchesForMotorcycleById([FromRoute] string id)
         {
-            return await _adminSearchesForMotorcycleById.ExecuteAsync(id);
+            var result = await _adminSearchesForMotorcycleById.ExecuteAsync(id);
+            return Ok(result);
         }
 
         [HttpDelete("{id}")]
-        public async Task AdminRemovesMotorcycleById([FromRoute] string id)
+        public async Task<IActionResult> AdminRemovesMotorcycleById([FromRoute] string id)
         {
             await _adminRemovesMotorcycleById.ExecuteAsync(id);
+            return Ok();
         }
     }
 }
