@@ -22,5 +22,13 @@ namespace BackendChallenge.Domain.Entities
             Model = model;
             Plate = plate;
         }
+
+        public void UpdatePlate(string plate)
+        {
+            if (string.IsNullOrEmpty(plate))
+                throw new Exception("A placa não pode ser nula ou vazia");
+
+            Plate = plate;
+        }
     }
 }
