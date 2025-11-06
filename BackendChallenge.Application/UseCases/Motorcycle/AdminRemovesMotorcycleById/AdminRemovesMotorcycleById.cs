@@ -29,7 +29,7 @@ namespace BackendChallenge.Application.UseCases
             if (result.HasMotorcycleRentals())
                 throw new Exception("Essa moto não pode ser removida, pois há locações.");
 
-            await _motorcycleRepository.RemoveAsync(result);
+            _motorcycleRepository.Remove(result);
 
             await _unityOfWorkService.SaveChangesAsync();
         }
