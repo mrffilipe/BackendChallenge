@@ -4,7 +4,8 @@
       "commandName": "DockerCompose",
       "commandVersion": "1.0",
       "serviceActions": {
-        "backendchallenge.api": "StartDebugging"
+        "backendchallenge.api": "StartDebugging",
+        "backendchallenge.worker": "StartDebugging"
       }
     }
   }

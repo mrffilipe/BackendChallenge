@@ -4,3 +4,10 @@ services:
     build:
       context: .
       dockerfile: BackendChallenge.API/Dockerfile
+
+  backendchallenge.worker:
+    image: ${DOCKER_REGISTRY-}backendchallengeworker
+    build:
+      context: .
+      dockerfile: BackendChallenge.Worker/Dockerfile
+
