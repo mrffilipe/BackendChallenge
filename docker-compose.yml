@@ -1,0 +1,6 @@
+services:
+  backendchallenge.api:
+    image: ${DOCKER_REGISTRY-}backendchallengeapi
+    build:
+      context: .
+      dockerfile: BackendChallenge.API/Dockerfile
