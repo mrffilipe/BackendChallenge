@@ -1,18 +1,23 @@
 ﻿using BackendChallenge.Domain.Common;
-using BackendChallenge.Domain.Enums;
 
 namespace BackendChallenge.Domain.Entities
 {
     public class MotorcycleRental : BaseEntity
     {
+        public string ExternalId { get; private set; } = $"loc-{Guid.NewGuid()}";
         public Guid DeliveryPersonId { get; private set; }
         public DeliveryPerson DeliveryPerson { get; private set; } = null!;
         public Guid MotorcycleId { get; private set; }
         public Motorcycle Motorcycle { get; private set; } = null!;
-        public DateOnly StartDate { get; private set; }
-        public DateOnly EndDate { get; private set; }
-        public DateOnly EstimatedEndDate { get; private set; }
-        public RentalPlan RentalPlan { get; private set; }
+        public DateTime StartDate { get; private set; }
+        public DateTime EndDate { get; private set; }
+        public DateTime EstimatedEndDate { get; private set; }
+        /*
+         * Para uma maior consistência no sistema, eu recomendaria que os planos estivessem contidos dentro de um Enum.
+         * Deixei o enum recomendado em Enums/RentalPlan.
+         * public RentalPlan RentalPlan { get; private set; }
+         */
+        public int RentalPlan { get; private set; }
 
         private MotorcycleRental()
         {
@@ -21,10 +26,10 @@ namespace BackendChallenge.Domain.Entities
         public MotorcycleRental(
             Guid deliveryPersonId,
             Guid motorcycleId,
-            DateOnly startDate,
-            DateOnly endDate,
-            DateOnly estimatedEndDate,
-            RentalPlan rentalPlan)
+            DateTime startDate,
+            DateTime endDate,
+            DateTime estimatedEndDate,
+            int rentalPlan)
         {
             DeliveryPersonId = deliveryPersonId;
             MotorcycleId = motorcycleId;

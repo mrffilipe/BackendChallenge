@@ -7,7 +7,7 @@ namespace BackendChallenge.Domain.Entities
         public string ExternalId { get; private set; } = string.Empty;
         public string Name { get; private set; } = string.Empty;
         public string Cnpj { get; private set; } = string.Empty;
-        public DateOnly DateOfBirth { get; private set; }
+        public DateTime DateOfBirth { get; private set; }
         public string DriversLicense { get; private set; } = string.Empty;
         /*
          * Para uma maior consistência no sistema, eu recomendaria que os tipos da CNH estivessem contidos dentro de um Enum.
@@ -27,7 +27,7 @@ namespace BackendChallenge.Domain.Entities
             string externalId,
             string name,
             string cnpj,
-            DateOnly dateOfBirth,
+            DateTime dateOfBirth,
             string driversLicense,
             string typeOfDriversLicense,
             string urlOfTheDriversLicenseImage)

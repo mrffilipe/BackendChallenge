@@ -2,7 +2,7 @@
 
 namespace BackendChallenge.Domain.Repositories
 {
-    public interface IMotorcycleRental
+    public interface IMotorcycleRentalRepository
     {
         Task AddAsync(MotorcycleRental rental);
     }

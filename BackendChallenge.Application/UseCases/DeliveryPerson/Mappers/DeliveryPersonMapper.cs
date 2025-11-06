@@ -10,7 +10,7 @@ namespace BackendChallenge.Application.UseCases
                 dto.identificador,
                 dto.nome,
                 dto.cnpj,
-                DateOnly.FromDateTime(dto.data_nascimento),
+                dto.data_nascimento,
                 dto.numero_cnh,
                 dto.tipo_cnh,
                 dto.imagem_cnh);
