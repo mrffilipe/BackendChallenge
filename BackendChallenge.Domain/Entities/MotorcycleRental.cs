@@ -4,7 +4,7 @@ namespace BackendChallenge.Domain.Entities
 {
     public class MotorcycleRental : BaseEntity
     {
-        public string ExternalId { get; private set; } = $"loc-{Guid.NewGuid()}";
+        public string ExternalId { get; private set; } = string.Empty;
         public Guid DeliveryPersonId { get; private set; }
         public DeliveryPerson DeliveryPerson { get; private set; } = null!;
         public Guid MotorcycleId { get; private set; }
