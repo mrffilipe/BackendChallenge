@@ -1,4 +1,4 @@
 ﻿namespace BackendChallenge.Application.Common
 {
-    public record ResponseToTheRequest(string message);
+    public record ResponseToTheRequest(string mensagem);
 }
