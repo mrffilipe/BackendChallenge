@@ -1,5 +1,4 @@
 ﻿using BackendChallenge.Domain.Common;
-using BackendChallenge.Domain.Enums;
 
 namespace BackendChallenge.Domain.Entities
 {
@@ -10,7 +9,12 @@ namespace BackendChallenge.Domain.Entities
         public string Cnpj { get; private set; } = string.Empty;
         public DateOnly DateOfBirth { get; private set; }
         public string DriversLicense { get; private set; } = string.Empty;
-        public TypeOfDriversLicense TypeOfDriversLicense { get; private set; }
+        /*
+         * Para uma maior consistência no sistema, eu recomendaria que os tipos da CNH estivessem contidos dentro de um Enum.
+         * Deixei o enum recomendado em Enums/TypeOfDriversLicense.
+         * //public TypeOfDriversLicense TypeOfDriversLicense { get; private set; }
+         */
+        public string TypeOfDriversLicense { get; private set; } = string.Empty;
         public string UrlOfTheDriversLicenseImage { get; private set; } = string.Empty;
 
         public ICollection<MotorcycleRental> MotorcycleRentals { get; private set; } = [];
@@ -25,7 +29,7 @@ namespace BackendChallenge.Domain.Entities
             string cnpj,
             DateOnly dateOfBirth,
             string driversLicense,
-            TypeOfDriversLicense typeOfDriversLicense,
+            string typeOfDriversLicense,
             string urlOfTheDriversLicenseImage)
         {
             ExternalId = externalId;
@@ -35,6 +39,11 @@ namespace BackendChallenge.Domain.Entities
             DriversLicense = driversLicense;
             TypeOfDriversLicense = typeOfDriversLicense;
             UrlOfTheDriversLicenseImage = urlOfTheDriversLicenseImage;
+        }
+
+        public static bool TypeOfDriversLicenseIsValid(string type)
+        {
+            return type == "A" || type == "B" || type == "A+B";
         }
     }
 }
