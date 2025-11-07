@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BackendChallenge.Infrastructure.Configurations.DbContextConfiguration">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Configurations\DbContextConfiguration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BackendChallenge.Infrastructure.Extensions.RepositoryExtensions">
+    <Position X="3.75" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Extensions\RepositoryExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BackendChallenge.Infrastructure.Extensions.ServiceExtensions">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Extensions\ServiceExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BackendChallenge.Infrastructure.Extensions.UseCaseExtensions">
+    <Position X="3.75" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Extensions\UseCaseExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BackendChallenge.Infrastructure.Services.RabbitMqMessageBus" BaseTypeListCollapsed="true">
+    <Position X="8.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AEQAAAAAAAAAAIAAAAAAAAAAIAAAAAAABAAAAAAABAA=</HashCode>
+      <FileName>Services\RabbitMqMessageBus.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BackendChallenge.Infrastructure.Services.S3FileStorage" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAACAAAAAAAEAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Services\S3FileStorage.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BackendChallenge.Infrastructure.Services.UnitOfWorkService" BaseTypeListCollapsed="true">
+    <Position X="8.5" Y="3.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\UnitOfWorkService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BackendChallenge.Infrastructure.Persistence.ApplicationDbContext">
+    <Position X="0.5" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAEAAAAAAAAAAEAAAAAAAAAACAAoAAAA=</HashCode>
+      <FileName>Persistence\ApplicationDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BackendChallenge.Infrastructure.Persistence.DeliveryPersonQueryRepository" BaseTypeListCollapsed="true">
+    <Position X="13.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Persistence\Repositories\DeliveryPersonQueryRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BackendChallenge.Infrastructure.Persistence.DeliveryPersonRepository" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Persistence\Repositories\DeliveryPersonRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BackendChallenge.Infrastructure.Persistence.MotorcycleQueryRepository" BaseTypeListCollapsed="true">
+    <Position X="18.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAACAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Persistence\Repositories\MotorcycleQueryRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BackendChallenge.Infrastructure.Persistence.MotorcycleRentalQueryRepository" BaseTypeListCollapsed="true">
+    <Position X="13.5" Y="2.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Persistence\Repositories\MotorcycleRentalQueryRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BackendChallenge.Infrastructure.Persistence.MotorcycleRentalRepository" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="2.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Persistence\Repositories\MotorcycleRentalRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BackendChallenge.Infrastructure.Persistence.MotorcycleRepository" BaseTypeListCollapsed="true">
+    <Position X="18.75" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAABAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Persistence\Repositories\MotorcycleRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BackendChallenge.Infrastructure.Persistence.NotificationRepository" BaseTypeListCollapsed="true">
+    <Position X="13.5" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Persistence\Repositories\NotificationRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BackendChallenge.Infrastructure.Persistence.BaseEntityConfiguration&lt;TEntity&gt;">
+    <Position X="25.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Persistence\Mappings\BaseEntityConfiguration.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BackendChallenge.Infrastructure.Persistence.DeliveryPersonConfiguration">
+    <Position X="24.25" Y="3.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Persistence\Mappings\DeliveryPersonConfiguration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BackendChallenge.Infrastructure.Persistence.MotorcycleConfiguration">
+    <Position X="29.5" Y="3.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Persistence\Mappings\MotorcycleConfiguration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BackendChallenge.Infrastructure.Persistence.MotorcycleRentalConfiguration">
+    <Position X="21.25" Y="3.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Persistence\Mappings\MotorcycleRentalConfiguration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BackendChallenge.Infrastructure.Persistence.NotificationConfiguration">
+    <Position X="27" Y="3.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Persistence\Mappings\NotificationConfiguration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BackendChallenge.Application.Common.ImageValidator">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\ImageValidator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BackendChallenge.Application.UseCases.AdminRegisterMotorcycle" BaseTypeListCollapsed="true">
+    <Position X="5.5" Y="0.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAABEAAAAAEEA=</HashCode>
+      <FileName>UseCases\Motorcycle\AdminRegisterMotorcycle\AdminRegisterMotorcycle.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BackendChallenge.Application.UseCases.AdminRemovesMotorcycleById" BaseTypeListCollapsed="true">
+    <Position X="8" Y="0.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAEAAAAAEEA=</HashCode>
+      <FileName>UseCases\Motorcycle\AdminRemovesMotorcycleById\AdminRemovesMotorcycleById.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BackendChallenge.Application.UseCases.AdminSearchesForMotorcycleById" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="0.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEEA=</HashCode>
+      <FileName>UseCases\Motorcycle\AdminSearchesForMotorcycleById\AdminSearchesForMotorcycleById.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BackendChallenge.Application.UseCases.AdminSearchesForMotorcycleByPlate" BaseTypeListCollapsed="true">
+    <Position X="5.5" Y="3.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEEA=</HashCode>
+      <FileName>UseCases\Motorcycle\AdminSearchesForMotorcycleByPlate\AdminSearchesForMotorcycleByPlate.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BackendChallenge.Application.UseCases.AdminUpdatesMotorcyclePlate" BaseTypeListCollapsed="true">
+    <Position X="8.5" Y="3.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAEEA=</HashCode>
+      <FileName>UseCases\Motorcycle\AdminUpdatesMotorcyclePlate\AdminUpdatesMotorcyclePlate.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BackendChallenge.Application.UseCases.MotorcycleMapper">
+    <Position X="11.25" Y="3.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEAAAAAAA=</HashCode>
+      <FileName>UseCases\Motorcycle\Mappers\MotorcycleMapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BackendChallenge.Application.UseCases.DeliveryPersonMapper">
+    <Position X="15.75" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>UseCases\DeliveryPerson\Mappers\DeliveryPersonMapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BackendChallenge.Application.UseCases.RegisterDeliveryPerson" BaseTypeListCollapsed="true">
+    <Position X="18" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAIAAACAAAAAAAAAIAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>UseCases\DeliveryPerson\RegisterDeliveryPerson\RegisterDeliveryPerson.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BackendChallenge.Application.UseCases.UpdateYourDriversLicensePhoto" BaseTypeListCollapsed="true">
+    <Position X="15.75" Y="3.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAIAAAAAAAAAAAAAIAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>UseCases\DeliveryPerson\UpdateYourDriversLicensePhoto\UpdateYourDriversLicensePhoto.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BackendChallenge.Application.UseCases.RegisterMotorcycleRental" BaseTypeListCollapsed="true">
+    <Position X="22.75" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAIAAAAAAAAAAAAUEA=</HashCode>
+      <FileName>UseCases\MotorcycleRental\RegisterMotorcycleRental\RegisterMotorcycleRental.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BackendChallenge.Application.UseCases.SearcheForMotorcycleRentalById" BaseTypeListCollapsed="true">
+    <Position X="25" Y="0.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>UseCases\MotorcycleRental\SearcheForMotorcycleRentalById\SearcheForMotorcycleRentalById.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BackendChallenge.Application.UseCases.UpdateReturnDate" BaseTypeListCollapsed="true">
+    <Position X="22.75" Y="3.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>UseCases\MotorcycleRental\UpdateReturnDate\UpdateReturnDate.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="BackendChallenge.Application.Services.IFileStorage">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\IFileStorage.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BackendChallenge.Application.Services.IMessageBus">
+    <Position X="2.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\IMessageBus.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BackendChallenge.Application.Services.IUnityOfWorkService">
+    <Position X="0.5" Y="3.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\IUnityOfWorkService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BackendChallenge.Application.UseCases.IAdminRegisterMotorcycle">
+    <Position X="5.5" Y="5.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>UseCases\Motorcycle\AdminRegisterMotorcycle\IAdminRegisterMotorcycle.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BackendChallenge.Application.UseCases.IAdminRemovesMotorcycleById">
+    <Position X="7.75" Y="5.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>UseCases\Motorcycle\AdminRemovesMotorcycleById\IAdminRemovesMotorcycleById.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BackendChallenge.Application.UseCases.IAdminSearchesForMotorcycleById">
+    <Position X="10.5" Y="5.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>UseCases\Motorcycle\AdminSearchesForMotorcycleById\IAdminSearchesForMotorcycleById.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BackendChallenge.Application.UseCases.IAdminSearchesForMotorcycleByPlate">
+    <Position X="5.5" Y="6.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>UseCases\Motorcycle\AdminSearchesForMotorcycleByPlate\IAdminSearchesForMotorcycleByPlate.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BackendChallenge.Application.UseCases.IAdminUpdatesMotorcyclePlate">
+    <Position X="8.5" Y="6.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>UseCases\Motorcycle\AdminUpdatesMotorcyclePlate\IAdminUpdatesMotorcyclePlate.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BackendChallenge.Application.UseCases.IMotorcycleQueryRepository">
+    <Position X="11.25" Y="6.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UseCases\Motorcycle\Queries\IMotorcycleQueryRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BackendChallenge.Application.UseCases.IDeliveryPersonQueryRepository">
+    <Position X="15.75" Y="5.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UseCases\DeliveryPerson\Queries\IDeliveryPersonQueryRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BackendChallenge.Application.UseCases.IRegisterDeliveryPerson">
+    <Position X="18.5" Y="5.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>UseCases\DeliveryPerson\RegisterDeliveryPerson\IRegisterDeliveryPerson.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BackendChallenge.Application.UseCases.IUpdateYourDriversLicensePhoto">
+    <Position X="15.75" Y="6.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>UseCases\DeliveryPerson\UpdateYourDriversLicensePhoto\IUpdateYourDriversLicensePhoto.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BackendChallenge.Application.UseCases.IMotorcycleRentalQueryRepository">
+    <Position X="22.75" Y="5.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UseCases\MotorcycleRental\Queries\IMotorcycleRentalQueryRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BackendChallenge.Application.UseCases.IRegisterMotorcycleRental">
+    <Position X="25.75" Y="5.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>UseCases\MotorcycleRental\RegisterMotorcycleRental\IRegisterMotorcycleRental.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BackendChallenge.Application.UseCases.ISearcheForMotorcycleRentalById">
+    <Position X="22.75" Y="6.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>UseCases\MotorcycleRental\SearcheForMotorcycleRentalById\ISearcheForMotorcycleRentalById.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BackendChallenge.Application.UseCases.IUpdateReturnDate">
+    <Position X="25.5" Y="6.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>UseCases\MotorcycleRental\UpdateReturnDate\IUpdateReturnDate.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

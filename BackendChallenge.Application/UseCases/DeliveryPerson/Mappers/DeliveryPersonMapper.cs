@@ -13,7 +13,7 @@ namespace BackendChallenge.Application.UseCases
                 dto.data_nascimento,
                 dto.numero_cnh,
                 dto.tipo_cnh,
-                dto.imagem_cnh);
+                "");
         }
     }
 }

@@ -1,0 +1,343 @@
+type: collection.insomnia.rest/5.0
+name: Scratch Pad
+meta:
+  id: wrk_scratchpad
+  created: 1755124680735
+  modified: 1755124680735
+  description: ""
+collection:
+  - name: Motorcycle
+    meta:
+      id: fld_3ec89df56c1f4dd49d85e2300a89d516
+      created: 1762479287370
+      modified: 1762479290585
+      sortKey: -1762479287370
+      description: ""
+    children:
+      - url: "{{ _.base_url }}motos"
+        name: Register
+        meta:
+          id: req_fe1c88672ed44a73b5cb7caebea87200
+          created: 1762479322162
+          modified: 1762509316980
+          isPrivate: false
+          description: ""
+          sortKey: -1762479322162
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"identificador": "string",
+            	"ano": 2024,
+            	"modelo": "string",
+            	"placa": "string"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}motos"
+        name: GetByPlate
+        meta:
+          id: req_868a94a2ba8d4ac1a6828852373befbd
+          created: 1762479451689
+          modified: 1762480386795
+          isPrivate: false
+          description: ""
+          sortKey: -1762479322112
+        method: GET
+        parameters:
+          - id: pair_a103a28cefa8496f8d94fb7a61b2e69a
+            name: placa
+            value: string
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/12.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}motos/string"
+        name: UpdatePlate
+        meta:
+          id: req_3c60dc3c549145278bdd9375ac4078d5
+          created: 1762479631290
+          modified: 1762509361270
+          isPrivate: false
+          description: ""
+          sortKey: -1762479322062
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"placa": "string"
+            }
+        parameters:
+          - id: pair_ffcc286d634545f89411a95474ee36cb
+            name: ""
+            value: ""
+            description: ""
+            disabled: false
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}motos/string"
+        name: GetById
+        meta:
+          id: req_c81d08f89ad7416583266f0c0b33beec
+          created: 1762509389573
+          modified: 1762509438008
+          isPrivate: false
+          description: ""
+          sortKey: -1762479322012
+        method: GET
+        parameters:
+          - id: pair_ffcc286d634545f89411a95474ee36cb
+            name: ""
+            value: ""
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/12.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}motos/string"
+        name: DeleteById
+        meta:
+          id: req_dd29b2cbb5164fc886e1f3e8174f27c3
+          created: 1762509446692
+          modified: 1762509450573
+          isPrivate: false
+          description: ""
+          sortKey: -1762479321962
+        method: DELETE
+        parameters:
+          - id: pair_ffcc286d634545f89411a95474ee36cb
+            name: ""
+            value: ""
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/12.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: DeliveryPerson
+    meta:
+      id: fld_b8b96848ce844e7bb438dd1795806535
+      created: 1762507988403
+      modified: 1762507988403
+      sortKey: -1762479287320
+      description: ""
+    children:
+      - url: "{{ _.base_url }}entregadores"
+        name: Register
+        meta:
+          id: req_5351512a96d1490e984a57d91c51feee
+          created: 1762507988404
+          modified: 1762509291818
+          isPrivate: false
+          description: ""
+          sortKey: -1762479322162
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"identificador": "string",
+            	"nome": "string",
+            	"cnpj": "string",
+            	"data_nascimento": "2025-11-07T09:54:45.415Z",
+            	"numero_cnh": "string",
+            	"tipo_cnh": "string",
+            	"imagem_cnh": "string"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}entregadores/string/cnh"
+        name: UpdateDriversLicensePhoto
+        meta:
+          id: req_4f108ab8bd614d74964a758dd6e3d66d
+          created: 1762508065419
+          modified: 1762508122021
+          isPrivate: false
+          description: ""
+          sortKey: -1762479322137
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"imagem_cnh": "string"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: MotorcycleRental
+    meta:
+      id: fld_8b94a48a991b44ea8937a24d60ec77d2
+      created: 1762509009757
+      modified: 1762509009757
+      sortKey: -1762479287270
+      description: ""
+    children:
+      - url: "{{ _.base_url }}locacao"
+        name: Register
+        meta:
+          id: req_89ab6265998245ba9ab57b86cac5f33e
+          created: 1762509009758
+          modified: 1762509035052
+          isPrivate: false
+          description: ""
+          sortKey: -1762479322162
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"entregador_id": "string",
+            	"moto_id": "string",
+            	"data_inicio": "2025-11-07T09:49:55.697Z",
+            	"data_termino": "2025-11-07T09:49:55.697Z",
+            	"data_previsao_termino": "2025-11-07T09:49:55.697Z",
+            	"plano": 0
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}locacao/string"
+        name: GetById
+        meta:
+          id: req_2f0198c232ea4d9ba931ee7814e82d91
+          created: 1762509009759
+          modified: 1762509088922
+          isPrivate: false
+          description: ""
+          sortKey: -1762479322137
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}locacao/string/devolucao"
+        name: UpdateReturnDate
+        meta:
+          id: req_361b77a617314906be4a7698d8b3bf94
+          created: 1762509127696
+          modified: 1762509150389
+          isPrivate: false
+          description: ""
+          sortKey: -1762479322124.5
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"data_devolucao": "2025-11-07T09:51:50.546Z"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1755124684737
+    modified: 1755124684737
+environments:
+  name: Base Environment
+  meta:
+    id: env_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1755124684677
+    modified: 1762479312613
+    isPrivate: false
+  data:
+    base_url: http://localhost:5000/

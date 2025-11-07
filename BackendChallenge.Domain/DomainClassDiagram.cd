@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BackendChallenge.Domain.Common.BaseEntity">
+    <Position X="9.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAIAAAAAIA=</HashCode>
+      <FileName>Common\BaseEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BackendChallenge.Domain.Entities.DeliveryPerson">
+    <Position X="8.25" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAACAAAAAAAAAAAAARAAAAQAAoAAAQAAAIAIAA=</HashCode>
+      <FileName>Entities\DeliveryPerson.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BackendChallenge.Domain.Entities.Motorcycle">
+    <Position X="13.75" Y="4" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAQAAAAAAAAAAAAAAIAAAgAAAoAAAA=</HashCode>
+      <FileName>Entities\Motorcycle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BackendChallenge.Domain.Entities.MotorcycleRental">
+    <Position X="5" Y="4" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAoAEAAAAIAAAAKAEQAAAA=</HashCode>
+      <FileName>Entities\MotorcycleRental.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BackendChallenge.Domain.Entities.Notification">
+    <Position X="11.25" Y="4" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Entities\Notification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="BackendChallenge.Domain.Repositories.IDeliveryPersonRepository">
+    <Position X="16.75" Y="1" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\IDeliveryPersonRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BackendChallenge.Domain.Repositories.IMotorcycleRentalRepository">
+    <Position X="19" Y="1" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\IMotorcycleRentalRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BackendChallenge.Domain.Repositories.IMotorcycleRepository">
+    <Position X="16.75" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\IMotorcycleRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BackendChallenge.Domain.Repositories.INotificationRepository">
+    <Position X="19" Y="2.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\INotificationRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
