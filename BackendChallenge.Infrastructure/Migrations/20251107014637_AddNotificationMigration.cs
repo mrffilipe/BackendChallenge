@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BackendChallenge.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class FirstMigration : Migration
+    public partial class AddNotificationMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -29,9 +29,6 @@ namespace BackendChallenge.Infrastructure.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_delivery_drivers", x => x.id);
-                    table.UniqueConstraint("AK_delivery_drivers_cnpj", x => x.cnpj);
-                    table.UniqueConstraint("AK_delivery_drivers_drivers_license", x => x.drivers_license);
-                    table.UniqueConstraint("AK_delivery_drivers_external_id", x => x.external_id);
                 });
 
             migrationBuilder.CreateTable(
@@ -49,8 +46,22 @@ namespace BackendChallenge.Infrastructure.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_motorcycles", x => x.id);
-                    table.UniqueConstraint("AK_motorcycles_external_id", x => x.external_id);
-                    table.UniqueConstraint("AK_motorcycles_plate", x => x.plate);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "notifications",
+                columns: table => new
+                {
+                    id = table.Column<Guid>(type: "uuid", nullable: false),
+                    motorcycle_id = table.Column<Guid>(type: "uuid", nullable: false),
+                    motorcycle_external_id = table.Column<string>(type: "text", nullable: false),
+                    type = table.Column<string>(type: "text", nullable: false),
+                    created_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    updated_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_notifications", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -71,7 +82,6 @@ namespace BackendChallenge.Infrastructure.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_motorcycle_rentals", x => x.id);
-                    table.UniqueConstraint("AK_motorcycle_rentals_external_id", x => x.external_id);
                     table.ForeignKey(
                         name: "FK_motorcycle_rentals_delivery_drivers_delivery_person_id",
                         column: x => x.delivery_person_id,
@@ -87,14 +97,50 @@ namespace BackendChallenge.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_delivery_drivers_cnpj",
+                table: "delivery_drivers",
+                column: "cnpj",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_delivery_drivers_drivers_license",
+                table: "delivery_drivers",
+                column: "drivers_license",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_delivery_drivers_external_id",
+                table: "delivery_drivers",
+                column: "external_id",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_motorcycle_rentals_delivery_person_id",
                 table: "motorcycle_rentals",
                 column: "delivery_person_id");
 
             migrationBuilder.CreateIndex(
+                name: "IX_motorcycle_rentals_external_id",
+                table: "motorcycle_rentals",
+                column: "external_id",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_motorcycle_rentals_motorcycle_id",
                 table: "motorcycle_rentals",
                 column: "motorcycle_id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_motorcycles_external_id",
+                table: "motorcycles",
+                column: "external_id",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_motorcycles_plate",
+                table: "motorcycles",
+                column: "plate",
+                unique: true);
         }
 
         /// <inheritdoc />
@@ -102,6 +148,9 @@ namespace BackendChallenge.Infrastructure.Migrations
         {
             migrationBuilder.DropTable(
                 name: "motorcycle_rentals");
+
+            migrationBuilder.DropTable(
+                name: "notifications");
 
             migrationBuilder.DropTable(
                 name: "delivery_drivers");

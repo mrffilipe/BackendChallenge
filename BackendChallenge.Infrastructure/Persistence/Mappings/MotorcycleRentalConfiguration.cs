@@ -12,7 +12,8 @@ namespace BackendChallenge.Infrastructure.Persistence
 
             builder.ToTable("motorcycle_rentals");
 
-            builder.HasAlternateKey(x => x.ExternalId);
+            builder.HasIndex(x => x.ExternalId)
+                .IsUnique();
 
             builder.Property(x => x.ExternalId)
                 .HasColumnName("external_id")

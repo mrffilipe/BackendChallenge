@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BackendChallenge.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251107010925_AddNotificationMigration")]
+    [Migration("20251107014637_AddNotificationMigration")]
     partial class AddNotificationMigration
     {
         /// <inheritdoc />
@@ -76,11 +76,14 @@ namespace BackendChallenge.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasAlternateKey("Cnpj");
+                    b.HasIndex("Cnpj")
+                        .IsUnique();
 
-                    b.HasAlternateKey("DriversLicense");
+                    b.HasIndex("DriversLicense")
+                        .IsUnique();
 
-                    b.HasAlternateKey("ExternalId");
+                    b.HasIndex("ExternalId")
+                        .IsUnique();
 
                     b.ToTable("delivery_drivers", (string)null);
                 });
@@ -121,9 +124,11 @@ namespace BackendChallenge.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasAlternateKey("ExternalId");
+                    b.HasIndex("ExternalId")
+                        .IsUnique();
 
-                    b.HasAlternateKey("Plate");
+                    b.HasIndex("Plate")
+                        .IsUnique();
 
                     b.ToTable("motorcycles", (string)null);
                 });
@@ -175,9 +180,10 @@ namespace BackendChallenge.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasAlternateKey("ExternalId");
-
                     b.HasIndex("DeliveryPersonId");
+
+                    b.HasIndex("ExternalId")
+                        .IsUnique();
 
                     b.HasIndex("MotorcycleId");
 

@@ -12,11 +12,14 @@ namespace BackendChallenge.Infrastructure.Persistence
 
             builder.ToTable("delivery_drivers");
 
-            builder.HasAlternateKey(x => x.ExternalId);
+            builder.HasIndex(x => x.ExternalId)
+                .IsUnique();
 
-            builder.HasAlternateKey(x => x.Cnpj);
+            builder.HasIndex(x => x.Cnpj)
+                .IsUnique();
 
-            builder.HasAlternateKey(x => x.DriversLicense);
+            builder.HasIndex(x => x.DriversLicense)
+                .IsUnique();
 
             builder.Property(x => x.ExternalId)
                 .HasColumnName("external_id")

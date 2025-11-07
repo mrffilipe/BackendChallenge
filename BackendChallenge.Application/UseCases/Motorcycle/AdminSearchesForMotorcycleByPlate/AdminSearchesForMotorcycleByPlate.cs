@@ -20,7 +20,7 @@
              * De a especificação do teste "A placa é um dado único e não pode se repetir." e no contrato to Swagger,
              * espera um retorno de várias motos, mas a placa é um dado único, portanto, não há como haver mais de uma moto com a mesma placa
              */
-            return (IEnumerable<MotorcycleDto>)result.ToDto();
+            return [result.ToDto()];
         }
     }
 }
