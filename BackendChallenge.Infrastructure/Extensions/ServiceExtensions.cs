@@ -13,6 +13,8 @@ namespace BackendChallenge.Infrastructure.Extensions
 
             services.AddSingleton<IMessageBus, RabbitMqMessageBus>();
 
+            services.AddSingleton<IFileStorage, S3FileStorage>();
+
             return services;
         }
     }

@@ -45,5 +45,10 @@ namespace BackendChallenge.Domain.Entities
         {
             return type == "A" || type == "B" || type == "A+B";
         }
+
+        public void SetDriversLicenseImageUrl(string url)
+        {
+            UrlOfTheDriversLicenseImage = url;
+        }
     }
 }
