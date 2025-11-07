@@ -11,7 +11,7 @@ builder.Services.AddControllers();
 
 builder.Services
     .AddRepositories()
-    .AddServices()
+    .AddServices(builder.Configuration)
     .AddUseCases();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

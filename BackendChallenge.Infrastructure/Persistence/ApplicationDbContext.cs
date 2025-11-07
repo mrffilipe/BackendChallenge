@@ -9,6 +9,7 @@ namespace BackendChallenge.Infrastructure.Persistence
         public DbSet<Motorcycle> Motorcycles { get; set; }
         public DbSet<DeliveryPerson> DeliveryDrivers { get; set; }
         public DbSet<MotorcycleRental> MotorcycleRentals { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
 
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
