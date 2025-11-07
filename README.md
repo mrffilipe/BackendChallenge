@@ -2,43 +2,129 @@
 
 Este projeto foi desenvolvido como parte de um **teste técnico para vaga de desenvolvedor backend**, com foco em **arquitetura limpa (Clean Architecture)**, princípios de **DDD (Domain-Driven Design)** e uso de **mensageria assíncrona**.
 
-A aplicação representa uma API responsável pelo gerenciamento de **motos, entregadores e locações**, com suporte a **armazenamento de imagens em S3** e **notificações de eventos via RabbitMQ**.
+A aplicação expõe uma **API** para gerenciar **motos, entregadores e locações**, com **armazenamento de imagens em S3** e **notificações de eventos via RabbitMQ**.
 
 ---
 
 ## 🏗️ Arquitetura da Solução
 
-A solução segue princípios de **Clean Architecture**, **DDD** e, em alguns pontos, características da **Hexagonal Architecture**, prezando pela **independência entre camadas**, **baixo acoplamento** e **alta coesão**.
+A solução segue princípios de **Clean Architecture** + **DDD** e, em alguns pontos, características de **Arquitetura Hexagonal** (separação clara de portas/adapters). Buscamos **baixo acoplamento**, **alta coesão** e **independência entre camadas**.
 
 ```
 BackendChallenge
-├── BackendChallenge.API           → Camada de entrada (Controllers / HTTP)
-├── BackendChallenge.Application   → Casos de uso, DTOs, mapeadores e contratos
-├── BackendChallenge.Domain        → Entidades, enums e abstrações de repositórios
-├── BackendChallenge.Infrastructure→ Implementações concretas (EF Core, RabbitMQ, AWS S3)
-├── BackendChallenge.Worker        → Serviço em background para consumir eventos
-└── docker-compose.yml             → Orquestração dos containers necessários
+├── BackendChallenge.API            → Camada de entrada (Controllers/HTTP)
+├── BackendChallenge.Application    → Casos de uso, DTOs, mapeadores, contratos
+├── BackendChallenge.Domain         → Entidades, enums, interfaces de repositório, base do domínio
+├── BackendChallenge.Infrastructure → EF Core (PostgreSQL), Repositórios, RabbitMQ, S3
+├── BackendChallenge.Worker         → Serviço em background que consome eventos e persiste notificações
+└── docker-compose.yml              → Orquestração de containers
 ```
 
-### 🧠 Camadas resumidas
+### 🧠 Camadas (resumo)
 
-* **API:** exposição dos endpoints HTTP e orquestração dos casos de uso.
-* **Application:** contém os *use cases* (como cadastrar moto, remover, buscar, etc), serviços e DTOs.
-* **Domain:** regras de negócio puras, entidades e interfaces (sem dependência de infraestrutura).
-* **Infrastructure:** persistência (PostgreSQL via EF Core), mensageria (RabbitMQ) e storage (AWS S3).
-* **Worker:** processo separado que consome mensagens do RabbitMQ e persiste notificações no banco.
+* **API**: exposição de endpoints HTTP e orquestração dos casos de uso.
+* **Application**: *use cases* (ex.: cadastrar moto, buscar, locação, etc.), DTOs, mappers, contratos/serviços.
+* **Domain**: regras de negócio puras (entidades, enums e interfaces) sem dependências de infraestrutura.
+* **Infrastructure**: implementação concreta de persistência (PostgreSQL/EF Core), mensageria (RabbitMQ) e storage (AWS S3).
+* **Worker**: processo separado que consome eventos do RabbitMQ e persiste notificações no banco.
+
+---
+
+## 📂 Estrutura de Pastas (espelhando o projeto)
+
+### `BackendChallenge.API`
+
+```
+BackendChallenge.API
+├── Controllers/
+├── Interfaces/
+├── appsettings.json
+├── Dockerfile
+└── Program.cs
+```
+
+### `BackendChallenge.Application`
+
+```
+BackendChallenge.Application
+├── Dependencies/
+├── Common/
+├── Services/
+└── UseCases/
+    ├── DeliveryPerson/
+    │   ├── Dtos/
+    │   ├── Mappers/
+    │   ├── Queries/
+    │   ├── RegisterDeliveryPerson/
+    │   └── UpdateYourDriversLicensePhoto/
+    ├── Motorcycle/
+    │   ├── AdminRegisterMotorcycle/
+    │   ├── AdminRemovesMotorcycleById/
+    │   ├── AdminSearchesForMotorcycleById/
+    │   ├── AdminSearchesForMotorcycleByPlate/
+    │   ├── AdminUpdatesMotorcyclePlate/
+    │   ├── Dtos/
+    │   ├── Mappers/
+    │   └── Queries/
+    └── MotorcycleRental/
+        ├── Dtos/
+        ├── Mappers/
+        ├── Queries/
+        ├── RegisterMotorcycleRental/
+        ├── SearcheForMotorcycleRentalById/
+        └── UpdateReturnDate/
+```
+
+### `BackendChallenge.Domain`
+
+```
+BackendChallenge.Domain
+├── Dependencies/
+├── Common/
+│   ├── Events/
+│   └── BaseEntity.cs
+├── Entities/
+├── Enums/
+├── Repositories/
+└── DomainClassDiagram.cd
+```
+
+### `BackendChallenge.Infrastructure`
+
+```
+BackendChallenge.Infrastructure
+├── Dependencies/
+├── Configurations/
+├── Extensions/
+├── Migrations/
+├── Persistence/
+│   ├── Mappings/
+│   ├── Repositories/
+│   └── ApplicationDbContext.cs
+├── Services/
+└── InfrastructureClassDiagram.cd
+```
+
+### `BackendChallenge.Worker`
+
+```
+BackendChallenge.Worker
+├── Dockerfile
+├── Program.cs
+└── Worker.cs
+```
 
 ---
 
 ## ⚙️ Tecnologias Utilizadas
 
-| Componente         | Tecnologia            | Justificativa                                                                                                               |
-| ------------------ | --------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| **Banco de Dados** | PostgreSQL            | Banco de dados relacional robusto, open-source, com excelente suporte a transações e integração nativa com o EF Core.       |
-| **Mensageria**     | RabbitMQ              | Broker leve e confiável para comunicação assíncrona entre serviços, adotado para eventos de domínio como “moto cadastrada”. |
-| **Storage**        | AWS S3                | Serviço de armazenamento altamente disponível e escalável, usado para armazenar imagens da CNH dos entregadores.            |
-| **ORM**            | Entity Framework Core | Simplifica o acesso e mapeamento relacional, mantendo a flexibilidade para consultas complexas.                             |
-| **.NET 8 / C# 12** | Plataforma principal  | Escolhida pela maturidade, performance e recursos modernos para desenvolvimento backend.                                    |
+| Componente         | Tecnologia            | Justificativa                                                                                      |
+| ------------------ | --------------------- | -------------------------------------------------------------------------------------------------- |
+| **Banco de Dados** | PostgreSQL            | Banco relacional robusto, open-source, excelente para transações e com suporte sólido no EF Core.  |
+| **Mensageria**     | RabbitMQ              | Broker leve e confiável para comunicação assíncrona (ex.: evento “moto cadastrada”).               |
+| **Storage**        | AWS S3                | Armazenamento de objetos escalável e durável; ideal para CNHs (não armazenamos binários no banco). |
+| **ORM**            | Entity Framework Core | Produtividade + flexibilidade para consultas e mapeamento.                                         |
+| **.NET 8 / C# 12** | Plataforma principal  | Maturidade, performance e recursos modernos de linguagem/plataforma.                               |
 
 ---
 
@@ -47,22 +133,21 @@ BackendChallenge
 ### 🧰 Pré-requisitos
 
 * [.NET 8 SDK](https://dotnet.microsoft.com/en-us/download)
-* [Docker](https://www.docker.com/)
-* [Docker Compose](https://docs.docker.com/compose/)
-* Opcional (para gerenciar o banco localmente): [DBeaver](https://dbeaver.io/) ou [HeidiSQL](https://www.heidisql.com/)
+* [Docker](https://www.docker.com/) e [Docker Compose](https://docs.docker.com/compose/)
+* Opcional: cliente SQL (DBeaver/HeidiSQL) para inspecionar o banco
 
 ---
 
-### 🪣 1. Clonar o repositório
+### 🪣 1) Clonar o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/backend-challenge.git
-cd backend-challenge
+git clone https://github.com/mrffilipe/BackendChallenge.git
+cd BackendChallenge
 ```
 
 ---
 
-### ⚙️ 2. Restaurar os pacotes
+### ⚙️ 2) Restaurar os pacotes
 
 ```bash
 dotnet restore
@@ -70,10 +155,10 @@ dotnet restore
 
 ---
 
-### 🧾 3. Criar o arquivo `.env`
+### 🧾 3) Criar o arquivo `.env`
 
-No mesmo diretório do `docker-compose.yml`, crie um arquivo chamado `.env`
-com o conteúdo abaixo. Você pode **usar exatamente este modelo** e **alterar apenas as variáveis da AWS**:
+Crie um arquivo `.env` **no mesmo diretório do `docker-compose.yml`** com o conteúdo abaixo.
+Você pode **usar exatamente este modelo** e **alterar apenas as variáveis da AWS** (as demais podem ficar como estão):
 
 ```bash
 # -----------------------
@@ -126,133 +211,107 @@ S3_USE_ACCELERATE=false
 
 ---
 
-### 🐳 4. Subir os containers com Docker Compose
+### 🐳 4) Subir os containers
 
 ```bash
 docker compose up -d --build
 ```
 
-Isso iniciará automaticamente os seguintes containers:
+Isso iniciará os serviços:
 
 * **API** (.NET 8)
 * **Worker** (.NET 8)
 * **PostgreSQL**
 * **RabbitMQ**
 
-> Acesse o painel do RabbitMQ em [http://localhost:15672](http://localhost:15672)
-> Login padrão: `guest / guest`
+> RabbitMQ Management UI: [http://localhost:15672](http://localhost:15672)
+> Login: `guest` / `guest`
 
 ---
 
-### 🗃️ 5. Aplicar as Migrations
+### 🗃️ 5) Migrations (observação)
 
-A aplicação utiliza o **Entity Framework Core** para gerenciar o banco.
+A aplicação utiliza **Entity Framework Core**.
 
-Se o banco ainda não foi criado ou você estiver rodando localmente pela primeira vez:
-
-```bash
-dotnet ef database update --project BackendChallenge.Infrastructure --startup-project BackendChallenge.API
-```
-
-> ⚠️ Este comando requer a instalação do **Entity Framework Tools**:
->
-> ```bash
-> dotnet tool install --global dotnet-ef
-> ```
->
-> O `dotnet ef` é usado **somente para gerar ou aplicar migrations**.
-> Ele **não é necessário** em execução normal via Docker.
+> **Quando a API sobe e o Postgres já está rodando via Docker Compose, a própria API aplica as migrations automaticamente.**
 
 ---
 
-### 🧠 6. Testar a API
+### 🧠 6) Testar a API
 
-A documentação dos endpoints está disponível via Swagger em:
+**Swagger**:
 
 ```
 http://localhost:5000/swagger
 ```
 
-Ou, se preferir, no diretório `/docs` do repositório há:
+**Coleções e documentação adicional**: veja o diretório **`/docs`** do repositório:
 
-* A **modelagem do sistema (diagrama ER e fluxos)**
-* O **arquivo `.json` do Insomnia** com todas as requisições utilizadas para teste da API
+* **Modelagem do sistema** (diagramas/ER/fluxos);
+* **Arquivo `.json` do Insomnia** com todas as requisições para testar os endpoints.
 
 ---
 
 ## 📬 Eventos e Mensageria
 
-* Ao cadastrar uma moto (`POST /motos`), é publicado o evento `motorcycle.created.v1` no RabbitMQ.
-* O **Worker** consome este evento e:
+* Ao cadastrar uma moto (`POST /motos`), a API publica o evento **`motorcycle.created.v1`** no RabbitMQ.
+* O **Worker** consome o evento e:
 
-  * Se o **ano da moto for 2024**, ele cria uma **notificação no banco**.
-  * Caso contrário, o evento é apenas descartado após o ACK.
+  * Se **`Year == 2024`**, cria uma **notificação** no banco;
+  * Caso contrário, faz ACK e segue.
 
-Isso garante **comunicação assíncrona e desacoplada** entre o contexto de cadastro e o de notificação.
-
----
-
-## 🧱 Decisões de Arquitetura
-
-### PostgreSQL
-
-Escolhido por sua estabilidade, suporte avançado a transações e compatibilidade total com o **Entity Framework Core**.
-Ideal para cenários relacionais com dados estruturados e consistência forte.
-
-### RabbitMQ
-
-Adotado para promover **comunicação assíncrona entre serviços**, reduzindo o acoplamento entre a API e o Worker.
-O RabbitMQ é simples de configurar, confiável e amplamente suportado pela comunidade .NET.
-
-### AWS S3
-
-Usado como **storage de arquivos**, garantindo escalabilidade e durabilidade.
-A escolha da AWS S3 se deve à sua integração nativa com SDKs .NET e à conformidade com padrões de segurança e resiliência.
+Isso promove **desacoplamento** e **processamento assíncrono** entre contextos.
 
 ---
 
-## 📂 Estrutura de Pastas (resumo)
+## 🧱 Decisões de Arquitetura (resumo)
 
-```
-BackendChallenge
-├── BackendChallenge.API/
-│   ├── Controllers/
-│   └── Program.cs
-│
-├── BackendChallenge.Application/
-│   ├── UseCases/
-│   ├── Dtos/
-│   ├── Common/
-│   └── Dependencies/
-│
-├── BackendChallenge.Domain/
-│   ├── Entities/
-│   ├── Enums/
-│   └── Repositories/
-│
-├── BackendChallenge.Infrastructure/
-│   ├── Persistence/
-│   ├── Repositories/
-│   ├── Configurations/
-│   └── Services/
-│
-├── BackendChallenge.Worker/
-│   └── Worker.cs
-│
-└── docker-compose.yml
-```
+* **PostgreSQL**: estabilidade, transações e ótimo suporte no EF Core.
+* **RabbitMQ**: comunicação assíncrona simples, confiável e com eco-sistema maduro no .NET.
+* **AWS S3**: armazenamento de objetos externo (CNHs), alta durabilidade/escalabilidade e SDK oficial para .NET.
+
+---
+
+## ✅ Próximos Passos / Testes Unitários (sugestões)
+
+Para elevar ainda mais a qualidade:
+
+1. **Testes de Application (use cases):**
+
+   * Mockar repositórios e `IFileStorage`/`IMessageBus` para validar **regras de negócio** sem tocar em DB ou rede.
+   * Casos:
+
+     * Cadastro de moto/entregador com validações de unicidade;
+     * Upload de CNH: rejeição de formatos não-PNG/BMP;
+     * Locação: CNH diferente de **A/A+B** deve falhar; data de início = D+1; coerência do plano;
+     * Cálculo de **multa** (planos 7/15) e **acréscimo** (R$50/dia extra).
+
+2. **Testes de Domain (entidades):**
+
+   * Invariantes de `Motorcycle`, `DeliveryPerson` e `MotorcycleRental`.
+   * Métodos de comportamento (ex.: `UpdatePlate`, validação de CNH).
+
+3. **Testes de Infra (integração):**
+
+   * Testes com banco em memória/contêiner efêmero (ex.: `Testcontainers`) para repositórios EF.
+   * Smoke tests para S3 (quando possível, apontando para **LocalStack** ou **MinIO** em ambiente local).
+
+4. **Ferramentas sugeridas:**
+
+   * **xUnit** (ou NUnit/MSTest)
+   * **FluentAssertions**
+   * **Moq** (ou NSubstitute)
+   * **Bogus** (dados fake)
 
 ---
 
 ## 🧩 Conclusão
 
-O projeto foi estruturado para refletir boas práticas de **arquitetura limpa e escalabilidade**, sendo facilmente extensível para novos contextos e integrações.
-
-Cada camada tem responsabilidades bem definidas, facilitando a manutenção, os testes e futuras evoluções.
+O projeto reflete boas práticas de **arquitetura limpa** e **escala sustentável**: responsabilidades bem definidas, mensageria desacoplada, storage externo para arquivos e banco relacional para consistência. A solução está pronta para evoluir, com pontos claros para inclusão de **testes automatizados** e novas funcionalidades.
 
 ---
 
 ### 🧑‍💻 Autor
 
 Desenvolvido por **Filipe**
-Contato: [*Perfil LinkedIn*](https://www.linkedin.com/in/mrffilipe/)
+Contato: [LinkedIn](https://www.linkedin.com/in/mrffilipe/)
