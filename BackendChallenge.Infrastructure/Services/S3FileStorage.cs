@@ -42,11 +42,7 @@ namespace BackendChallenge.Infrastructure.Services
                 ContentType = contentType
             };
 
-            // Server-side encryption opcional:
-            // req.ServerSideEncryptionMethod = ServerSideEncryptionMethod.AES256;
-
             var resp = await _s3.PutObjectAsync(req, ct);
-            // Retorne a key; gerar URL pública só se você realmente quiser expor.
             return key;
         }
     }
