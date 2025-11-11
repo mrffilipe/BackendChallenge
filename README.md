@@ -288,12 +288,13 @@ Para elevar ainda mais a qualidade:
 
 2. **Testes de Domain (entidades):**
 
-   * Invariantes de `Motorcycle`, `DeliveryPerson` e `MotorcycleRental`.
-   * Métodos de comportamento (ex.: `UpdatePlate`, validação de CNH).
+   * Já foram adicionados **testes unitários** para as principais entidades da camada de domínio (`Motorcycle`, `DeliveryPerson`, `MotorcycleRental`, `Notification` e `BaseEntity`), cobrindo construtores, invariantes e métodos de comportamento (como `UpdatePlate` e validação de CNH).
+   * Recomenda-se expandir gradualmente os cenários e adicionar novos testes à medida que o domínio evoluir.
 
 3. **Testes de Infra (integração):**
 
-   * Testes com banco em memória/contêiner efêmero (ex.: `Testcontainers`) para repositórios EF.
+   * Próximo passo recomendado: criar **testes de integração** para validar repositórios e adapters.
+   * Utilizar banco em memória ou contêiner efêmero (ex.: `Testcontainers`) para testar repositórios EF.
    * Smoke tests para S3 (quando possível, apontando para **LocalStack** ou **MinIO** em ambiente local).
 
 4. **Ferramentas sugeridas:**
@@ -315,3 +316,4 @@ O projeto reflete boas práticas de **arquitetura limpa** e **escala sustentáve
 
 Desenvolvido por **Filipe**
 Contato: [LinkedIn](https://www.linkedin.com/in/mrffilipe/)
+
