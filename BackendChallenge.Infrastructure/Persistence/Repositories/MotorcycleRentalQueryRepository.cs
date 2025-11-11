@@ -15,7 +15,10 @@ namespace BackendChallenge.Infrastructure.Persistence
 
         public async Task<MotorcycleRental> GetByExternalIdAsync(string externalId)
         {
-            return await _context.MotorcycleRentals.FirstOrDefaultAsync(x => externalId == externalId);
+            return await _context.MotorcycleRentals
+                .Include(x => x.Motorcycle)
+                .Include(x => x.DeliveryPerson)
+                .FirstOrDefaultAsync(x => x.ExternalId == externalId);
         }
     }
 }
